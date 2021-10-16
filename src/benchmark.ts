@@ -39,12 +39,10 @@ export class FileReadBenchmark extends EventEmitter
 
     invoke(file: fs.PathLike)
     {
-        fs.open(file, "r", (err, fd) =>
+        let fd;
+        try
         {
-            if (err)
-            {
-                throw err
-            }
+            fd = fs.openSync(file, "r")
 
             const stats = fs.statSync(file)
             const size = stats.size
@@ -76,13 +74,22 @@ export class FileReadBenchmark extends EventEmitter
                 }
             }
 
+            fs.closeSync(fd)
+
             if (totalRead != size)
             {
                 throw `Total read not equal to file size. Read: ${totalRead}, expected: ${size}`
             }
 
             this.emit("completed", file, totalTime, totalRead)
-        })
+        } catch (error)
+        {
+            if (fd)
+            {
+                fs.close(fd)
+            }
+            throw error
+        }
     }
 }
 

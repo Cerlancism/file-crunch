@@ -11,10 +11,9 @@ export class FileReadBenchmark extends EventEmitter {
         this.buffer = buffer;
     }
     invoke(file) {
-        fs.open(file, "r", (err, fd) => {
-            if (err) {
-                throw err;
-            }
+        let fd;
+        try {
+            fd = fs.openSync(file, "r");
             const stats = fs.statSync(file);
             const size = stats.size;
             this.emit("open", file, size);
@@ -38,11 +37,18 @@ export class FileReadBenchmark extends EventEmitter {
                     progressRead = 0;
                 }
             }
+            fs.closeSync(fd);
             if (totalRead != size) {
                 throw `Total read not equal to file size. Read: ${totalRead}, expected: ${size}`;
             }
             this.emit("completed", file, totalTime, totalRead);
-        });
+        }
+        catch (error) {
+            if (fd) {
+                fs.close(fd);
+            }
+            throw error;
+        }
     }
 }
 export function benchmarkFiles(files, ignoreErrors = true) {
