@@ -1,0 +1,27 @@
+{
+  "name": "file-crunch",
+  "version": "0.0.1",
+  "description": "File speed benchmarking tool on existing files.",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "prestart": "tsc",
+    "start": "node ./dist/cli.js",
+    "test": "node ./test/test.js"
+  },
+  "keywords": [
+    "benchmark"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "4.4.4"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.0",
+    "commander": "^8.2.0"
+  },
+  "bin": {
+    "file-crunch": "dist/cli.js"
+  }
+}
