@@ -31,7 +31,7 @@ Options:
 ```
 
 ## Examples
-`file-crunch read test/`
+`file-crunch read --recursive test/`
 ```
 Completed 0.000       0.145 MB/s C:\Users\CHE\Documents\Github\file-crunch\test\test.js
 Completed 0.193    5317.939 MB/s C:\Users\CHE\Documents\Github\file-crunch\test\rand-file\random-1G-1.bin
