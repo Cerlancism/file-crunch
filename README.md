@@ -23,17 +23,11 @@ Commands:
 
 `file-crunch read --help`
 ```
-Usage: File Crunch [options] [command]
-
-File speed benchmarking tool on existing files.
+Usage: File Crunch read [options] <PathLike>
 
 Options:
-  -v, --version              output the version number
-  -h, --help                 display help for command
-
-Commands:
-  read [options] <PathLike>
-  help [command]             display help for command
+  -r, --recursive
+  -h, --help       display help for command     display help for command
 ```
 
 ## Examples
