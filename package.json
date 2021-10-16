@@ -13,7 +13,7 @@
     "benchmark"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "4.4.4"
   },
