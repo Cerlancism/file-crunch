@@ -47,6 +47,7 @@ Completed 0.189    5418.118 MB/s C:\Users\CHE\Documents\Github\file-crunch\test\
 ```
 
 ## TODO
+- [ ] Allow buffer size to be specified https://github.com/Cerlancism/file-crunch/issues/1
 - [ ] Silent mode
 - [ ] Generate Random files like https://github.com/Cerlancism/random-file-generator
 - [ ] Tests
